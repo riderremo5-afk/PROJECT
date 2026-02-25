@@ -1,0 +1,31 @@
+CREATE DATABASE IF NOT EXISTS agriculture_system;
+USE agriculture_system;
+
+CREATE TABLE IF NOT EXISTS admin (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    psw VARCHAR(100) NOT NULL
+);
+
+INSERT INTO admin (name, psw) VALUES ('admin', 'admin123');
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    mobile VARCHAR(15) NOT NULL,
+    address TEXT NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    registered_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS crops (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    crop_name VARCHAR(200) NOT NULL,
+    soil_type VARCHAR(100) NOT NULL,
+    fertilizer VARCHAR(200) NOT NULL,
+    water_irrigation VARCHAR(200) NOT NULL,
+    season VARCHAR(100) NOT NULL,
+    description TEXT NOT NULL,
+    added_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
